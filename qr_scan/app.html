@@ -38,41 +38,7 @@
       <div class="col">
         <h4 class="header-logo">Result :</h4>
         <table class="table table-bordered table-striped">
-          <tr>
-              <td class="upper-size">3T</td>
-              <td class="upper-qty">0</td>
-          </tr>
-          <tr>
-              <td class="upper-size">4</td>
-              <td class="upper-qty">0</td>
-          </tr>
-          <tr>
-              <td class="upper-size">4T</td>
-              <td class="upper-qty">0</td>
-          </tr>
-          <tr>
-              <td class="upper-size">5</td>
-              <td class="upper-qty">0</td>
-          </tr>
-          <tr>
-              <td class="upper-size">5T</td>
-              <td class="upper-qty">0</td>
-          </tr>
-          <tr>
-              <td class="upper-size">6</td>
-              <td class="upper-qty">0</td>
-          </tr>
-          <tr>
-              <td class="upper-size">6T</td>
-              <td class="upper-qty">0</td>
-          </tr><tr>
-              <td class="upper-size">7</td>
-              <td class="upper-qty">0</td>
-          </tr>
-          <tr>
-              <th class="upper-size">#</th>
-              <td class="upper-qty">0</td>
-          </tr>
+          
         </table>
 
 
@@ -94,8 +60,9 @@ function onScanSuccess(qrCodeMessage) {
     if(keySize.includes(code)){
       const size = qrCodeMessage.replace(".5","T")
       document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+size+'/6</span>';
+      dataScan(size)
     } else {
-      document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERRCODE: '+ qrCodeMessage+' </span>';      
+      document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERRCODE: '+ qrCodeMessage +' </span>';      
     }
     
 }
@@ -107,5 +74,22 @@ function onScanError(errorMessage) {
 var html5QrcodeScanner = new Html5QrcodeScanner(
     "reader", { fps: 10, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess, onScanError);
+
+
+// BUAT OBJEK ROW UNTUK MENDATA
+function dataScan(x,y) {
+  // body...
+  const table = document.querySelector("table")
+  const dsize = document.querySelector("[qty-size='"+x+"']");
+  if (!dsize) {
+    const row = document.createElement("TR")
+    const elem = '<td class="upper-size">'+ x +'</td><td class="upper-qty" qty-size="'+ x +'">6</td>';
+    row.innerHTML = elem
+
+    table.appendChild(TR);
+  } else {
+    dsize.innerHTML = dsize.innerHTML.parseInt() + 6;
+  }
+}
 
 </script>
