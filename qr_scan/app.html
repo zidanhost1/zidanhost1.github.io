@@ -60,7 +60,7 @@ function onScanSuccess(qrCodeMessage) {
     if(keySize.includes(code)){
       const size = qrCodeMessage.replace(".5","T")
       document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+ qrCodeMessage +'</span>';
-      dataScan(size,0)
+      setTimeout(dataScan(size,0), 3000)
     } else {
       document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERRCODE: '+ 404 +'  </span>';      
     }
@@ -72,7 +72,7 @@ function onScanError(errorMessage) {
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 17, qrbox: 250 });
+    "reader", { fps: 5, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess, onScanError);
 
 
