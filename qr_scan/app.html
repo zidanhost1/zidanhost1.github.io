@@ -81,7 +81,7 @@ function dataScan(x,y) {
   // body...
   const table = document.querySelector("table.table")
   const dsize = document.querySelector("[qty-size='"+x+"']");
-  if (!dsize) {
+  if (dsize == null) {
     const row = document.createElement("TR")
     const elem = '<td class="upper-size">'+ x +'</td><td class="upper-qty" qty-size="'+ x +'">6</td>';
     row.innerHTML = elem
