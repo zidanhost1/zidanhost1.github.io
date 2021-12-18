@@ -31,8 +31,8 @@
 
         <!-- scanner -->
         <div style="width: 280px;min-height: 280px;" class="mx-md-3 mx-auto" id="reader"></div>
-        <br>
-        <p style="width: 270px;margin: auto;" id="result"></p>
+
+        <div style="width: 280px;margin: auto;text-align: center;" class="p-2" id="result"></div>
       </div>
 
       <div class="col">
@@ -89,7 +89,15 @@
 
 <script type="text/javascript">
 function onScanSuccess(qrCodeMessage) {
-    document.getElementById('result').innerHTML = '<span class="badge text-wrap badge-success">'+qrCodeMessage+'</span>';
+    const keySize = ['1','1.5','2','2.5','3','3.5','4','4.5','5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','13.5']
+    const code = qrCodeMessage.toString();
+    if(keySize.includes(code)){
+      const size = qrCodeMessage.replace(".5","T")
+      document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+size+'/6</span>';
+    } else {
+      document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERR</span>';      
+    }
+    
 }
 
 function onScanError(errorMessage) {
