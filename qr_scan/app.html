@@ -32,7 +32,7 @@
         <!-- scanner -->
         <div style="width: 270px;min-height: 270px;" class="mx-md-3 mx-auto" id="reader"></div>
         <br>
-        <span style="width: 270px;margin: auto;" id="result"></span>
+        <p style="width: 270px;margin: auto;" id="result"></p>
       </div>
 
       <div class="col">
@@ -62,7 +62,7 @@
 
 <script type="text/javascript">
 function onScanSuccess(qrCodeMessage) {
-    document.getElementById('result').innerHTML = '<span class="badge badge-success">'+qrCodeMessage+'</span>';
+    document.getElementById('result').innerHTML = '<span class="badge text-wrap badge-success">'+qrCodeMessage+'</span>';
 }
 
 function onScanError(errorMessage) {
