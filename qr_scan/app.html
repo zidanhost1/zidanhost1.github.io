@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
   <title>Upper Scanner</title>
@@ -30,9 +30,9 @@
         <h2 class="header-logo text-center text-md-left"><a href="./" class="text-decoration-none text-dark">Upper Scanner 0.1</a></h2>
 
         <!-- scanner -->
-        <div style="width: 300px;min-height: 300px;" class="mx-md-3 mx-auto" id="reader"></div>
+        <div style="width: 270px;min-height: 270px;" class="mx-md-3 mx-auto" id="reader"></div>
         <br>
-        <span id="result"></span>
+        <span style="width: 270px;margin: auto;" id="result"></span>
       </div>
 
       <div class="col">
@@ -66,7 +66,7 @@ function onScanSuccess(qrCodeMessage) {
 }
 
 function onScanError(errorMessage) {
-    //Err
+  //handle scan error
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
