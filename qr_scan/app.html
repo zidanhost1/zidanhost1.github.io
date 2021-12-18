@@ -59,7 +59,7 @@ function onScanSuccess(qrCodeMessage) {
     const code = qrCodeMessage.toString();
     if(keySize.includes(code)){
       const size = qrCodeMessage.replace(".5","T")
-      document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+qrCodeMessage.replace(".5","T") +'/6</span>';
+      document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+ qrCodeMessage +'/6</span>';
       dataScan(size,0)
     } else {
       document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERRCODE: '+ 404 +'  </span>';      
