@@ -59,7 +59,7 @@ function onScanSuccess(qrCodeMessage) {
     const code = qrCodeMessage.toString();
     if(keySize.includes(code)){
       const size = qrCodeMessage.replace(".5","T")
-      document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+ qrCodeMessage +'/6</span>';
+      document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+ qrCodeMessage +'</span>';
       dataScan(size,0)
     } else {
       document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERRCODE: '+ 404 +'  </span>';      
@@ -72,7 +72,7 @@ function onScanError(errorMessage) {
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 10, qrbox: 250 });
+    "reader", { fps: 10, qrbox: { width: 250, height: 250 } };
 html5QrcodeScanner.render(onScanSuccess, onScanError);
 
 
@@ -88,7 +88,7 @@ function dataScan(x,y) {
 
     table.appendChild(row);
   } else {
-    let result = dsize.innerHTML.parseInt() + 6;
+    let result = parseInt(dsize.innerHTML) + 6;
     dsize.innerHTML = result
   }
 }
