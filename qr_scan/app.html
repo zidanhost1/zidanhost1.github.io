@@ -86,7 +86,7 @@ function dataScan(x,y) {
     const elem = '<td class="upper-size">'+ x +'</td><td class="upper-qty" qty-size="'+ x +'">6</td>';
     row.innerHTML = elem
 
-    table.appendChild(TR);
+    table.appendChild(row);
   } else {
     dsize.innerHTML = dsize.innerHTML.parseInt() + 6;
   }
