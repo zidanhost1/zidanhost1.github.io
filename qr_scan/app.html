@@ -43,7 +43,7 @@
 
 
         <div class="d-flex justify-content-end">
-          <span class="btn btn-primary">Restart</span>
+          <span class="btn btn-primary" onclick="Restart()">Restart</span>
         </div>
 
       </div>
@@ -62,7 +62,7 @@ function onScanSuccess(qrCodeMessage) {
       document.getElementById('result').innerHTML = '<span class="text-wrap text-success">'+ qrCodeMessage +'</span>';
       setTimeout(dataScan(size,0), 3000)
     } else {
-      document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERRCODE: '+ 404 +'  </span>';      
+      document.getElementById('result').innerHTML = '<span class="text-wrap text-danger">ERRCODE: '+ qrCodeMessage +'  </span>';      
     }
     
 }
@@ -72,7 +72,7 @@ function onScanError(errorMessage) {
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 18, qrbox: 250 });
+    "reader", { fps: 5, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess, onScanError);
 
 
@@ -91,6 +91,21 @@ function dataScan(x,y) {
     let result = parseInt(dsize.innerHTML);
     dsize.innerHTML = result + 6
   }
+}
+
+function Restart() {
+  // body...
+  document.querySelector("table.table").innerHTML = "";
+}
+
+function remove(x) {
+  // body...
+
+}
+
+function add(x) {
+  // body...
+
 }
 
 </script>
