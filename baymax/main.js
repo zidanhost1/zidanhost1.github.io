@@ -3,7 +3,7 @@ function randomTime(min, max) {
 }
 
 function berkedip() {	
-	const kedip = randomTime(1,3);
+	const kedip = randomTime(1,2);
 	const eyes = document.getElementsByClassName("eyes")
 
 	// console.log(kedip)
